@@ -18,7 +18,7 @@ public class MemberTest {
         MemberService memberService = ac.getBean(MemberService.class);
 
         //given
-        Member member = new Member(1L, "test", 1000000);
+        Member member = new Member(1L, "test", 123123, 0);
 
         //when
         memberService.join(member);

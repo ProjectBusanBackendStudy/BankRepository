@@ -3,11 +3,13 @@ package bank.bankCore.member;
 public class Member {
     private Long id;
     private String name;
+    private int password;
     private int money;
 
-    public Member(Long id, String name, int money) {
+    public Member(Long id, String name, int password, int money) {
         this.id = id;
         this.name = name;
+        this.password = password;
         this.money = money;
     }
 
@@ -34,4 +36,8 @@ public class Member {
     public void setMoney(int money) {
         this.money = money;
     }
+
+    public int getPassword() { return password; }
+
+    public void setPassword(int password) { this.password = password; }
 }

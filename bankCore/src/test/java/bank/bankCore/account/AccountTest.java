@@ -23,7 +23,7 @@ public class AccountTest {
         BankService bankService = ac.getBean(BankService.class);
 
         //given
-        Member member = new Member(1L, "csw", 0);
+        Member member = new Member(1L, "csw", 123, 0);
         memberService.join(member);
 
         System.out.println("member = " + member.getMoney());
@@ -45,5 +45,12 @@ public class AccountTest {
         System.out.println("member = " + member.getMoney());
         System.out.println("bankService = " + bankService.myBank().getBankMoney());
 
+        //when3
+        accountService.outputMoney(member, bankService.myBank(), 3000);
+
+        //then3
+        assertThat(bankService.myBank().getBankMoney()).isEqualTo(-1000);
+        System.out.println("member = " + member.getMoney());
+        System.out.println("bankService = " + bankService.myBank().getBankMoney());
     }
 }
