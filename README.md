@@ -1,2 +1,7 @@
-# BankRepository
-Money management, membership information management
+# 간단한 입출금 은행 웹 만들기
+
+1. 회원가입 가능 및 아이디, 비밀번호, 이름, 계좌 정보 저장
+   
+3. 은행 총 자금 관리
+   
+5. 입출금 기능
