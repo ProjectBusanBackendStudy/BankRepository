@@ -20,20 +20,30 @@ public class AccountServiceImpl implements AccountService {
 
 
     @Override
-    public void inputMoney(Member member, BankMoney bankMoney, int money) {
-        member.setMoney(member.getMoney() + money);
-        bankService.changeMoney(money);
+    public void inputMoney(Member member, int money, int password) {
+        Account account = member.getAccount();
+        if(password != account.getPassword())  {
+            System.out.println("Account password is wrong.");
+        }
+        else {
+            account.setMoney(account.getMoney() + money);
+            bankService.changeMoney(money);
+        }
     }
 
     @Override
-    public void outputMoney(Member member, BankMoney bankMoney, int money) {
-        int nowMoney = member.getMoney();
+    public void outputMoney(Member member, int money, int password) {
+        Account account = member.getAccount();
+        if(password != account.getPassword())  {
+            System.out.println("Account password is wrong.");
+        }
+        int nowMoney = account.getMoney();
         if(nowMoney < money) {
             System.out.println("Your account balance is lower than money."
                     + " nowMoney = " + nowMoney);
             return;
         }
-        member.setMoney(member.getMoney() - money);
+        account.setMoney(account.getMoney() - money);
         bankService.changeMoney(-money);
     }
 }
